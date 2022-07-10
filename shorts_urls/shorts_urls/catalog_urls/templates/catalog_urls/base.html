@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+{% block menu %}
+{% if request.user.is_authenticated %}
+<h2><a href="{% url 'create_shorts_url' %}">Создать короткий url</a> | <a href="{% url 'catalog_urls' %}">Список всех url's</a> | <a href="{% url 'logout' %}">Выход из {{user.username}}</a></h2>
+{% else %}
+<h2><a href="{% url 'reg' %}">Регистрация</a> | <a href="{% url 'log_in' %}">Вход</a></h2>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

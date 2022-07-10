@@ -1,0 +1,18 @@
+{% extends "catalog_urls/base.html" %}
+
+{% block content %}
+
+<h1>
+    Регистрация
+</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зарегистрироваться</button>
+</form>
+<h3>
+    Если у Вас уже есть аккаунт на нашем сайте, <a href="{% url 'log_in' %}">Войдите</a> в него
+</h3>
+
+{% endblock %}
