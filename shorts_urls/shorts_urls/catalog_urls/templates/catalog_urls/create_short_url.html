@@ -1,0 +1,19 @@
+{% extends "catalog_urls/base.html" %}
+
+{% block content %}
+
+<h2>Введите URL адрес, который хотите сделать короче</h2>
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <button type="submit">Создать короткий URL</button>
+</form>
+
+<p>
+
+    <a href="{% url 'short_u' url_s %}">{{ short_link }}</a>
+
+</p>
+
+{% endblock%}

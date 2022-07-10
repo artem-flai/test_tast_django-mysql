@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'catalog_urls/css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+{% block menu %}
+{% if request.user.is_authenticated %}
+<div class="main_menu">
+    <div class="menu_style">
+        <a href="{% url 'create_shorts_url' %}">Создать короткий url</a>
+    </div>
+
+    <div class="menu_style">
+        <a href="{% url 'catalog_urls' %}">Список всех url's</a>
+    </div>
+
+    <div class="menu_style">
+        <a href="{% url 'logout' %}">Выход из {{user.username}}</a>
+    </div>
+</div>
+{% else %}
+<div class="main_menu">
+    <div class="menu_style">
+        <a href="{% url 'reg' %}">Регистрация</a>
+    </div>
+
+    <div class="menu_style">
+        <a href="{% url 'log_in' %}">Вход</a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
