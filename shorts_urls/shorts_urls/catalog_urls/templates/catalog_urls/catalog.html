@@ -1,18 +1,34 @@
 {% extends "catalog_urls/base.html" %}
 
 {% block content %}
-<p>Список моих url:</p>
+<h1>Список моих url:</h1>
+<div class="all__short">
+    <div class="rows__link">
+        <div class="long__link">
+            <h3>Длинная ссылка</h3>
+        </div>
 
+        <div class="short__link">
+            <h3>Короткая ссылка</h3>
+        </div>
+    </div>
 {% for link in all_links %}
 
-{% if link.id_user.pk == user.pk %}
-<div class="long__link">
-    <a href="{{ link.long_link }}">{{ link.long_link }}</a>
-</div>
-<div class="short__link">
-    <a href="{% url 'short_u' link.short_link %}">http://127.0.0.1:8000/short_u/{{ link.short_link }}/</a>
-</div>
-{% endif %}
+    {% if link.id_user.pk == user.pk %}
+    <div class="rows__link">
+        <div class="long__link">
+            <a href="{{ link.long_link }}">{{ link.long_link }}</a>
+        </div>
+
+        <div class="short__link">
+            <a href="{% url 'short_u' link.short_link %}">http://127.0.0.1:8000/short_u/{{ link.short_link }}/</a>
+        </div>
+    </div>
+
+
+    {% endif %}
 {% endfor %}
+</div>
+
 
 {% endblock%}

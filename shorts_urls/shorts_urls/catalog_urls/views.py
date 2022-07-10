@@ -48,7 +48,6 @@ class LogIn(LoginView):
 
 
 def create_shorts_url(request):
-    all_shorts = Catalog_Urls.objects.all()
     short_link = ''
     short_liter = 'A'
     if request.method == "POST":
